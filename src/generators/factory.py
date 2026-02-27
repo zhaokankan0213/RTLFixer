@@ -2,7 +2,7 @@ from .py_generate import PyGenerator
 from .rs_generate import RsGenerator
 from .verilog_generate import VerilogGenerator
 from .generator_types import Generator
-from .model import CodeLlama, ModelBase, GPT4, GPT35, StarChat, GPTDavinci, PhindCodeLlama, CodeLlama2, CodeLlama3, CodeGen
+from .model import CodeLlama, ModelBase, GPT4, GPT35, GPTChat, StarChat, GPTDavinci, PhindCodeLlama, CodeLlama2, CodeLlama3, CodeGen
 from .agents import ReAct, PlanAndExecute, OpenAIFunc, RTLFixer
 
 
@@ -37,6 +37,9 @@ def model_factory(model_name: str) -> ModelBase:
         return GPT4(model_name)
     elif "gpt-3.5" in model_name:
         return GPT35(model_name)
+    elif "DeepSeek" in model_name or "Qwen" in model_name or "GLM" in model_name or "Kimi" in model_name:
+        # 支持第三方 API 兼容的模型
+        return GPTChat(model_name)
     elif "starchat" in model_name:
         return StarChat()
     elif "codegen" in model_name:

@@ -64,11 +64,11 @@ def gpt_chat(
     if 'azure' in model:
         
         openai.api_type = "azure"
-        openai.api_base = ""
+        openai.api_base = "https://llmapi.paratera.com"
         openai.api_version = "2023-07-01-preview"
-        openai.api_key = ""
-        os.environ['OPENAI_API_BASE'] = ""
-        os.environ['OPENAI_API_KEY'] = ""
+        openai.api_key = "sk-mJEySjFOgBRiYB9Cmm3sdQ"
+        os.environ['OPENAI_API_BASE'] = "https://llmapi.paratera.com"
+        os.environ['OPENAI_API_KEY'] = "sk-mJEySjFOgBRiYB9Cmm3sdQ"
         os.environ['OPENAI_API_VERSION'] = "2023-07-01-preview"
         os.environ['OPENAI_API_TYPE'] = "azure"
         engine = ""
@@ -86,6 +86,10 @@ def gpt_chat(
             stop='endmodule'
         )
     else:
+        # 设置自定义 API base URL
+        openai.api_key = os.environ.get('OPENAI_API_KEY', 'sk-mJEySjFOgBRiYB9Cmm3sdQ')
+        openai.api_base = os.environ.get('OPENAI_API_BASE', 'https://llmapi.paratera.com')
+        
         response = openai.ChatCompletion.create(
             model=model,
             messages=[dataclasses.asdict(message) for message in messages],

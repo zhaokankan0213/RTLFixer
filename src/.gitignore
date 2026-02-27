@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Experiment outputs
+exp/
+
+# External dependencies (installed separately)
+verilog-eval/
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/

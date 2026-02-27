@@ -5,7 +5,7 @@ python main.py \
   --task "oneshot_fix_compile" \
   --agent_feedback "rag" \
   --language "verilog" \
-  --model "gpt-3.5-turbo-16k-0613" \
+  --model "DeepSeek-V3.2" \
   --pass_at_k "1" \
   --num_samples '1' \
   --compiler 'quartus' \
