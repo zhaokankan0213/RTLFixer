@@ -8,5 +8,5 @@ python main.py \
   --model "DeepSeek-V3.2" \
   --pass_at_k "1" \
   --num_samples '1' \
-  --compiler 'quartus' \
+  --compiler 'iverilog' \
   --verbose
